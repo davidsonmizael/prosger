@@ -1,0 +1,117 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<link rel="stylesheet" href="css/styles.css">
+ 	<script src="js/simple.js"> 
+ 	</script>
+ 	<title>PROSGER</title>
+ 	<meta charset="UTF-8"> 
+ </head>
+
+ <body>
+ 	<header class="box-shadow"> 
+ 		<h1>PROSGER   ~(˘▾˘~)</h1>
+ 		<span>made with <span id="heart">&hearts;</span> by davis</span>
+ 	</header>
+
+ 	<div id="content">
+ 		<div id="left-side">
+ 			<div id="add-process">
+ 				<div id="process-null"  class="box-shadow">
+ 					<p>Hey, upload a file to add a process (｡◕‿‿◕｡)</p>
+ 					<p>or</p>
+ 					<p>click <a onclick="createGhost()">here</a> to create a ghost one (ò_óˇ)</p>
+ 					<p><a onclick="showInfo()">x</a></p>
+ 				</div>
+ 				<div id="process-info"  class="box-shadow">
+ 					<ul>
+ 						<li>| (• ◡•)| info (❍ᴥ❍ʋ)</li>
+ 						<li>pid: <span id="actual-pid"></span></li>
+ 						<li>name: <span id="actual-name"></span></li>
+ 						<li>type: <span id="actual-type"></span></li>
+ 						<li>size: <span id="actual-size"></span></li>
+ 						<li>owner: <span id="actual-owner"></span></li>
+ 						<li>time: <span id="actual-time"></span></li>
+ 						<li>memory needed: <span id="actual-memo"></span></li>
+ 						<li style="border-bottom: 0;">priority: <span id="actual-priority"></span></li>
+ 					</ul>
+
+ 					<center>
+ 						<input type="submit" name="submit-process" class="box-shadow input-submit" onclick="addToReadyList()" value="add!! :D">
+ 						<button type="button" name="cancel-process" class="box-shadow input-submit" onclick="backStart()">cancel :(</button>
+ 					</center>
+ 				</div>
+				<div id="process-create" class="box-shadow">
+ 					<form onsubmit="setProcessByInput()" method="POST" id="insert-process">
+ 						<ul>
+ 							<li>insert some info here! ◕‿↼</li>
+ 							<li>pid:<br> <input type="text" id="insert-pid" class="txt" value="1"></li> <!--auto get -->
+ 							<li>name: <br><input type="text"id="insert-name" class="txt"  placeholder="name your process!"></li>
+ 							<!--<li>type: <input type="text" name="type"></li>  type = user-input -->
+ 							<li>priority: <br>
+ 								<input type="radio" name="insert-priority" value="3" checked>low 
+ 								<input type="radio" name="insert-priority" value="2" >medium 
+ 								<input type="radio" name="insert-priority" value="1" >high </li>
+ 							<li>owner:<br> <input type="text" id="insert-owner" class="txt" placeholder="your name!"></li>
+ 							<li>time: <br><input type="text" id="insert-time" class="txt" placeholder="time in seconds!"></li>
+ 							<li>memory needed:<br> <input type="text" class="txt" id="insert-memory-needed" placeholder="memory in mb! i.e. 3.1"></li>
+ 						</ul>
+ 						<center>
+ 						<button type="button" class="box-shadow input-submit" name="insert-process" onclick="setProcessByInput()">submit it! ( ﾟヮﾟ)</button>
+ 					</form>
+ 				</div>
+ 				<div>
+ 					<form>
+ 						<div id="input-upload-file" class="box-shadow">
+ 							<span>upload! (ღ˘⌣˘ღ)</span> 
+ 							<input type="file" class="upload" id="fileUp" name="fileUpload" onchange="setProcessByFile(this.files);">
+ 						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="core-side" >
+			<div id="process-core" class="box-shadow">
+			<div id="upper-core">
+				<div id="ready-core" class="box-shadow boxes-core">
+					<ul>
+						<li><h4>READY</h4></li>
+	 					<li><h4>pid: name | priority</h4></li>
+					</ul>
+	 				<ul id="ready-list">
+
+	 				</ul>
+	 			</div>
+
+	 			<div id="running-core" class="box-shadow boxes-core">
+	 				<video id="running-video" src=null autoplay poster="video/romario fazendo embaixadinha.png">
+	 				</video>
+	 				<p id="process-running-info">pid: <span id="running-pid"> </span> | name: <span id="running-name"> </span> | actual-time: <span id="running-atime"> </span></p>	
+	 			</div>
+
+	 			<div id="finished-core" class="box-shadow boxes-core">
+		 			<ul>
+		 				<li><h4>FINISHED</h4></li>
+		 				<li><h4>pid: name | tempo</h4></li>
+		 			</ul>
+	 				<ul id="finished-list" class="box-shadow ">
+	 					
+	 				</ul>
+	 			</div>
+ 			</div>
+ 			<div id="lower-core">
+				<div id="waiting-core" class="box-shadow boxes-core">
+				<ul>
+					<li><h4>WAITING</h4></li>
+	 				<li><h4>pid: name | what is waiting</h4></li>
+	 			</ul>
+	 				<ul id="waiting-list">
+
+	 				</ul>
+	 			</div>
+ 			</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ </body>
+ </html> 
